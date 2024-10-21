@@ -1,0 +1,27 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Environment Variables
+.env
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Editor Files
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Build output
+dist/
+build/
+
+# Dependencies installed by package manager
+package-lock.json
+yarn.lock
+
