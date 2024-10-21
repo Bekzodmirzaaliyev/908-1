@@ -9,7 +9,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^5.1.1",
+=======
+>>>>>>> origin/sexy
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "mongoose": "^8.7.2",
