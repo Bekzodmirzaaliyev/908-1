@@ -5,7 +5,6 @@ const fs = require('fs');
 const path = require('path');
 const router = express.Router();
 
-// Путь к директории uploads
 const uploadsDir = path.join(__dirname, '../uploads');
 
 // Создание директории uploads, если она не существует
@@ -13,7 +12,6 @@ if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
-// Конфигурация хранилища Multer
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, uploadsDir);
@@ -24,7 +22,6 @@ const storage = multer.diskStorage({
     },
 });
 
-// Фильтр для загрузки только изображений
 const fileFilter = (req, file, cb) => {
     const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
     if (allowedTypes.includes(file.mimetype)) {
@@ -51,7 +48,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Создание нового товара
 router.post('/create', upload.single('image'), async (req, res) => {
     try {
         const { name, category, rating, price, stock, description } = req.body;
@@ -82,7 +78,6 @@ router.post('/create', upload.single('image'), async (req, res) => {
     }
 });
 
-// Обновление товара
 router.put('/:id', upload.single('image'), async (req, res) => {
     try {
         const { name, category, rating, price, stock, description } = req.body;
